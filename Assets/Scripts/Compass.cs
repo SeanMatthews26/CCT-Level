@@ -12,10 +12,19 @@ public class Compass : MonoBehaviour
     public RawImage compassImage;
     public Transform player;
 
+    public float maxDistance = 200f;
+
     float compassUnit;
 
     [SerializeField] Collectable col1;
     [SerializeField] Collectable col2;
+    [SerializeField] Collectable col3;
+    [SerializeField] Collectable col4;
+    [SerializeField] Collectable col5;
+    [SerializeField] Collectable col6;
+    [SerializeField] Collectable col7;
+    [SerializeField] Collectable col8;
+
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +35,12 @@ public class Compass : MonoBehaviour
 
         AddCollectableMarker(col1);
         AddCollectableMarker(col2);
+        AddCollectableMarker(col3);
+        AddCollectableMarker(col4);
+        AddCollectableMarker(col5);
+        AddCollectableMarker(col6);
+        AddCollectableMarker(col7);
+        AddCollectableMarker(col8);
     }
 
     // Update is called once per frame
@@ -38,6 +53,16 @@ public class Compass : MonoBehaviour
             foreach (Collectable collectable in collectables)
             {
                 collectable.image.rectTransform.anchoredPosition = GetPosOnCompass(collectable);
+
+                float distance = Vector2.Distance(new Vector2(player.transform.position.x, player.transform.position.z), collectable.GetPosition());
+                float scale = 0f;
+
+                if(distance < maxDistance)
+                {
+                    scale = 1f - (distance / maxDistance);
+                }
+
+                collectable.image.rectTransform.localScale = Vector3.one * scale;
             }
         }
     }
