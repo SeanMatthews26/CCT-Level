@@ -90,6 +90,6 @@ public class Compass : MonoBehaviour
     {
         collectables.Remove(collectable);
         Destroy(collectable.image);
-        Debug.Log(collectables.Count);
+        //Debug.Log(collectables.Count);
     }
 }

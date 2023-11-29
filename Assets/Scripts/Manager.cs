@@ -35,5 +35,10 @@ public class Manager : MonoBehaviour
     {
         Debug.Log("Finshed");
     }
+
+    public int GetCollectablesCaught()
+    {
+        return collectablesCaught;
+    }
     
 }

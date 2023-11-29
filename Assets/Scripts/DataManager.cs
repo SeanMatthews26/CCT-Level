@@ -6,22 +6,64 @@ using UnityEngine.UI;
 
 public class DataManager : MonoBehaviour
 {
+    [SerializeField] private GameObject gameManager;
+    private Manager manager;
+
     //Current Navigational Tool
-    enum Tool {miniMap, compass, none};
+    enum Tool {MINIMAP, COMPASS, NONE};
     [SerializeField] Tool currentTool;
+    private GameObject currentToolGameObject;
+    private RectTransform currentToolRT;
 
     //MiniMap
-    [SerializeField] private RawImage minimap;
-    private RectTransform miniMapRT;
+    [SerializeField] private GameObject minimap;
+
+    //Compass
+    [SerializeField] private GameObject compass;
 
     //Timer
     private float totalPlayTime = 0f;
     private float timeLookingAtTool = 0f;
+    private float[] timeToGetCollectables;
 
     // Start is called before the first frame update
     void Start()
     {
-        miniMapRT = minimap.GetComponent<RectTransform>(); 
+        manager = gameManager.GetComponent<Manager>();
+
+        timeToGetCollectables = new float[8];
+
+        for (int i =0; i < 8; i++)
+        {
+            timeToGetCollectables[i] = 0;
+        }
+
+        switch (currentTool)
+        {
+            case Tool.MINIMAP:
+                currentToolGameObject = minimap;
+                currentToolRT = minimap.GetComponent<RectTransform>();
+
+                minimap.SetActive(true);
+                compass.SetActive(false);
+                break;
+
+            case Tool.COMPASS: 
+                currentToolGameObject = compass;
+                currentToolRT = compass.GetComponent<RectTransform>();
+
+                minimap.SetActive(false);
+                compass.SetActive(true);
+                break;
+
+            case Tool.NONE:
+                currentToolGameObject= null;
+                currentToolRT = null;
+
+                minimap.SetActive(false);
+                compass.SetActive(false);
+                break;
+        }
     }
 
     // Update is called once per frame
@@ -30,27 +72,44 @@ public class DataManager : MonoBehaviour
         GazePoint gazePoint = TobiiAPI.GetGazePoint();
         if (gazePoint.IsRecent())
         {
-            if (RectTransformUtility.RectangleContainsScreenPoint(miniMapRT, gazePoint.Screen))
+            if (RectTransformUtility.RectangleContainsScreenPoint(currentToolRT, gazePoint.Screen))
             {
-                minimap.color = Color.red;
+                currentToolGameObject.GetComponent<RawImage>().color = Color.red;
                 timeLookingAtTool += Time.deltaTime;
             }
             else
             {
-                minimap.color = Color.white;
+                currentToolGameObject.GetComponent<RawImage>().color = Color.white;
             }
         }
 
         //Timer
         totalPlayTime += Time.deltaTime;
+        if(manager.GetCollectablesCaught() < timeToGetCollectables.Length)
+        {
+            TimeToGetCollectables(manager.GetCollectablesCaught());
+        }
     }
 
     private void OnApplicationQuit()
     {
         float percentTimeLookingAtTool = (timeLookingAtTool / totalPlayTime) * 100;
 
-        Debug.Log(totalPlayTime);
-        Debug.Log(timeLookingAtTool);
-        Debug.Log(percentTimeLookingAtTool);
+        Debug.Log("Total Play Time = " + totalPlayTime);
+        Debug.Log("Time Looking At the Tool is = " + timeLookingAtTool);
+        Debug.Log("The percentage looking at tool is = " + percentTimeLookingAtTool + "%");
+        Debug.Log("Time to Get collectable 1 was = " + timeToGetCollectables[0]);
+        Debug.Log("Time to Get collectable 2 was = " + timeToGetCollectables[1]);
+        Debug.Log("Time to Get collectable 3 was = " + timeToGetCollectables[2]);
+        Debug.Log("Time to Get collectable 4 was = " + timeToGetCollectables[3]);
+        Debug.Log("Time to Get collectable 5 was = " + timeToGetCollectables[4]);
+        Debug.Log("Time to Get collectable 6 was = " + timeToGetCollectables[5]);
+        Debug.Log("Time to Get collectable 7 was = " + timeToGetCollectables[6]);
+        Debug.Log("Time to Get collectable 8 was = " + timeToGetCollectables[7]);
+    }
+
+    private void TimeToGetCollectables(int collectableCaught)
+    {
+        timeToGetCollectables[collectableCaught] += Time.deltaTime;
     }
 }
