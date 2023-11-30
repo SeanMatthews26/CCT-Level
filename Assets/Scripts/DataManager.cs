@@ -25,6 +25,7 @@ public class DataManager : MonoBehaviour
     private float totalPlayTime = 0f;
     private float timeLookingAtTool = 0f;
     private float[] timeToGetCollectables;
+    private float[] timeWatchingToolPerCollectable;
 
     // Start is called before the first frame update
     void Start()
@@ -32,10 +33,16 @@ public class DataManager : MonoBehaviour
         manager = gameManager.GetComponent<Manager>();
 
         timeToGetCollectables = new float[8];
+        timeWatchingToolPerCollectable = new float[8];
 
         for (int i =0; i < 8; i++)
         {
             timeToGetCollectables[i] = 0;
+        }
+
+        for (int i = 0; i < 8; i++)
+        {
+            timeWatchingToolPerCollectable[i] = 0;
         }
 
         switch (currentTool)
@@ -76,6 +83,11 @@ public class DataManager : MonoBehaviour
             {
                 currentToolGameObject.GetComponent<RawImage>().color = Color.red;
                 timeLookingAtTool += Time.deltaTime;
+
+                if (manager.GetCollectablesCaught() < timeToGetCollectables.Length)
+                {
+                    TimeWatchingToolPerCollectable(manager.GetCollectablesCaught());
+                }
             }
             else
             {
@@ -94,8 +106,14 @@ public class DataManager : MonoBehaviour
     private void OnApplicationQuit()
     {
         float percentTimeLookingAtTool = (timeLookingAtTool / totalPlayTime) * 100;
+        float[] percentTimeLookingAtToolsPerCollectable = new float[8];
 
-        Debug.Log("Total Play Time = " + totalPlayTime);
+        for (int i = 0; i < 8; i++)
+        {
+            percentTimeLookingAtToolsPerCollectable[i] = (timeWatchingToolPerCollectable[i] / timeToGetCollectables[i]) * 100;
+        }
+
+        /*Debug.Log("Total Play Time = " + totalPlayTime);
         Debug.Log("Time Looking At the Tool is = " + timeLookingAtTool);
         Debug.Log("The percentage looking at tool is = " + percentTimeLookingAtTool + "%");
         Debug.Log("Time to Get collectable 1 was = " + timeToGetCollectables[0]);
@@ -105,11 +123,27 @@ public class DataManager : MonoBehaviour
         Debug.Log("Time to Get collectable 5 was = " + timeToGetCollectables[4]);
         Debug.Log("Time to Get collectable 6 was = " + timeToGetCollectables[5]);
         Debug.Log("Time to Get collectable 7 was = " + timeToGetCollectables[6]);
-        Debug.Log("Time to Get collectable 8 was = " + timeToGetCollectables[7]);
+        Debug.Log("Time to Get collectable 8 was = " + timeToGetCollectables[7]);*/
+
+        //Percentages per tool
+        for (int i = 0; i < 8; i++)
+        {
+            Debug.Log("Percent time looking at tool while finding collectable " + (i + 1) + " was = " + percentTimeLookingAtToolsPerCollectable[i]);
+        }
     }
 
     private void TimeToGetCollectables(int collectableCaught)
     {
         timeToGetCollectables[collectableCaught] += Time.deltaTime;
+    }
+
+    private void TimeWatchingToolPerCollectable(int collectableCaught) 
+    {
+        timeWatchingToolPerCollectable[collectableCaught] += Time.deltaTime;
+    }
+
+    private void Debugs()
+    {
+
     }
 }
