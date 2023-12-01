@@ -6,6 +6,11 @@ using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
+    [SerializeField] private GameObject gameManager;
+    private Manager manager;
+    [SerializeField] private GameObject dataManager;
+    private DataManager dataManagerScript;
+
     private int experienceLevel = 0;
 
     [SerializeField] private Button[] button;
@@ -15,6 +20,9 @@ public class MenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        manager = gameManager.GetComponent<Manager>();
+        dataManagerScript = dataManager.GetComponent<DataManager>();
+
         button[0].onClick.AddListener(TaskOnClick0);
         button[1].onClick.AddListener(TaskOnClick1);
         button[2].onClick.AddListener(TaskOnClick2);
@@ -86,5 +94,11 @@ public class MenuManager : MonoBehaviour
     public void Button5()
     {
         experienceLevel= 5;
+    }
+
+    public void ConfirmButton()
+    {
+        dataManagerScript.SetExperienceLevel(experienceLevel);
+        manager.PlayGame();
     }
 }

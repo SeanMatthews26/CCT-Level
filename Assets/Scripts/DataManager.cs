@@ -27,6 +27,8 @@ public class DataManager : MonoBehaviour
     private float[] timeToGetCollectables;
     private float[] timeWatchingToolPerCollectable;
 
+    private int experienceLevel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -113,7 +115,7 @@ public class DataManager : MonoBehaviour
             percentTimeLookingAtToolsPerCollectable[i] = (timeWatchingToolPerCollectable[i] / timeToGetCollectables[i]) * 100;
         }
 
-        /*Debug.Log("Total Play Time = " + totalPlayTime);
+        Debug.Log("Total Play Time = " + totalPlayTime);
         Debug.Log("Time Looking At the Tool is = " + timeLookingAtTool);
         Debug.Log("The percentage looking at tool is = " + percentTimeLookingAtTool + "%");
         Debug.Log("Time to Get collectable 1 was = " + timeToGetCollectables[0]);
@@ -123,13 +125,15 @@ public class DataManager : MonoBehaviour
         Debug.Log("Time to Get collectable 5 was = " + timeToGetCollectables[4]);
         Debug.Log("Time to Get collectable 6 was = " + timeToGetCollectables[5]);
         Debug.Log("Time to Get collectable 7 was = " + timeToGetCollectables[6]);
-        Debug.Log("Time to Get collectable 8 was = " + timeToGetCollectables[7]);*/
+        Debug.Log("Time to Get collectable 8 was = " + timeToGetCollectables[7]);
+
+        Debug.Log("Experience Level = " + experienceLevel);
 
         //Percentages per tool
-        for (int i = 0; i < 8; i++)
+        /*for (int i = 0; i < 8; i++)
         {
             Debug.Log("Percent time looking at tool while finding collectable " + (i + 1) + " was = " + percentTimeLookingAtToolsPerCollectable[i]);
-        }
+        }*/
     }
 
     private void TimeToGetCollectables(int collectableCaught)
@@ -142,8 +146,8 @@ public class DataManager : MonoBehaviour
         timeWatchingToolPerCollectable[collectableCaught] += Time.deltaTime;
     }
 
-    private void Debugs()
+    public void SetExperienceLevel(int level)
     {
-
+        experienceLevel= level;
     }
 }
