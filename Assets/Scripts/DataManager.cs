@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Tobii.Gaming;
 using UnityEngine.UI;
+using System.IO;
 
 public class DataManager : MonoBehaviour
 {
@@ -28,6 +29,14 @@ public class DataManager : MonoBehaviour
     private float[] timeWatchingToolPerCollectable;
 
     private int experienceLevel;
+
+    public class Test
+    {
+        public string name = "Sean";
+        public int num = 400;
+    }
+
+    public Test myTest = new Test();
 
     // Start is called before the first frame update
     void Start()
@@ -105,8 +114,17 @@ public class DataManager : MonoBehaviour
         }
     }
 
+    private void OutputJson()
+    {
+        string strOutput = JsonUtility.ToJson(myTest);
+
+        File.WriteAllText(Application.dataPath + "/DataFiles/text.json", strOutput);
+    }
+
     private void OnApplicationQuit()
     {
+        OutputJson();
+
         float percentTimeLookingAtTool = (timeLookingAtTool / totalPlayTime) * 100;
         float[] percentTimeLookingAtToolsPerCollectable = new float[8];
 
