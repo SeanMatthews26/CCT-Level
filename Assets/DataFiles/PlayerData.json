@@ -178,4 +178,112 @@
         NaN,
         NaN
     ]
+}{
+    "currentTool": "MINIMAP",
+    "experienceLevel": 0,
+    "totalPlayTime": 0.019999999552965165,
+    "timeLookingAtTool": 0.0,
+    "percentTimeLookingAtTool": 0.0,
+    "timeToGetCollectables": [
+        0.019999999552965165,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "timeWatchingToolPerCollectable": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "percentTimeLookingAtToolsPerCollectable": [
+        0.0,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN
+    ]
+}{
+    "currentTool": "MINIMAP",
+    "experienceLevel": 0,
+    "totalPlayTime": 0.019999999552965165,
+    "timeLookingAtTool": 0.0,
+    "percentTimeLookingAtTool": 0.0,
+    "timeToGetCollectables": [
+        0.019999999552965165,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "timeWatchingToolPerCollectable": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "percentTimeLookingAtToolsPerCollectable": [
+        0.0,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN
+    ]
+}{
+    "currentTool": "MINIMAP",
+    "experienceLevel": 2,
+    "totalPlayTime": 43.467918395996097,
+    "timeLookingAtTool": 10.060324668884278,
+    "percentTimeLookingAtTool": 23.14425277709961,
+    "timeToGetCollectables": [
+        1.9630028009414673,
+        5.110373497009277,
+        6.16076135635376,
+        4.5810866355896,
+        4.522136211395264,
+        10.128494262695313,
+        5.764123916625977,
+        5.221944332122803
+    ],
+    "timeWatchingToolPerCollectable": [
+        0.0,
+        2.810335636138916,
+        2.9503567218780519,
+        0.5132886171340942,
+        1.0406339168548585,
+        0.7555260062217712,
+        1.1048078536987305,
+        0.8853704929351807
+    ],
+    "percentTimeLookingAtToolsPerCollectable": [
+        0.0,
+        54.99276351928711,
+        47.88948059082031,
+        11.204516410827637,
+        23.011999130249025,
+        7.459411144256592,
+        19.166969299316408,
+        16.954805374145509
+    ]
 }
