@@ -1,0 +1,181 @@
+{
+    "currentTool": "COMPASS",
+    "experienceLevel": 2,
+    "totalPlayTime": 45.4612922668457,
+    "timeLookingAtTool": 26.04121971130371,
+    "percentTimeLookingAtTool": 57.28218078613281,
+    "timeToGetCollectables": [
+        2.178314685821533,
+        7.019254207611084,
+        6.420838356018066,
+        4.420584201812744,
+        4.436164855957031,
+        10.124567031860352,
+        5.938051700592041,
+        4.920065879821777
+    ],
+    "timeWatchingToolPerCollectable": [
+        0.313650906085968,
+        4.186166763305664,
+        3.846926212310791,
+        2.658947706222534,
+        3.479814291000366,
+        5.050187110900879,
+        3.543062925338745,
+        2.9624838829040529
+    ],
+    "percentTimeLookingAtToolsPerCollectable": [
+        14.398787498474121,
+        59.63833999633789,
+        59.91314697265625,
+        60.14923858642578,
+        78.44194793701172,
+        49.880523681640628,
+        59.66709518432617,
+        60.2122802734375
+    ]
+}{
+    "currentTool": "NONE",
+    "experienceLevel": 4,
+    "totalPlayTime": 0.0,
+    "timeLookingAtTool": 0.0,
+    "percentTimeLookingAtTool": NaN,
+    "timeToGetCollectables": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "timeWatchingToolPerCollectable": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "percentTimeLookingAtToolsPerCollectable": [
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN
+    ]
+}{
+    "currentTool": "NONE",
+    "experienceLevel": 0,
+    "totalPlayTime": 0.019999999552965165,
+    "timeLookingAtTool": 0.0,
+    "percentTimeLookingAtTool": 0.0,
+    "timeToGetCollectables": [
+        0.019999999552965165,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "timeWatchingToolPerCollectable": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "percentTimeLookingAtToolsPerCollectable": [
+        0.0,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN
+    ]
+}{
+    "currentTool": "NONE",
+    "experienceLevel": 4,
+    "totalPlayTime": 45.48226547241211,
+    "timeLookingAtTool": 0.0,
+    "percentTimeLookingAtTool": 0.0,
+    "timeToGetCollectables": [
+        1.9980188608169556,
+        4.980651378631592,
+        6.981076240539551,
+        4.396724700927734,
+        4.703019618988037,
+        10.595626831054688,
+        6.242394924163818,
+        5.58111047744751
+    ],
+    "timeWatchingToolPerCollectable": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "percentTimeLookingAtToolsPerCollectable": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+    ]
+}{
+    "currentTool": "NONE",
+    "experienceLevel": 2,
+    "totalPlayTime": 4.557440757751465,
+    "timeLookingAtTool": 0.0,
+    "percentTimeLookingAtTool": 0.0,
+    "timeToGetCollectables": [
+        2.2775471210479738,
+        2.2798943519592287,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "timeWatchingToolPerCollectable": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "percentTimeLookingAtToolsPerCollectable": [
+        0.0,
+        0.0,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN
+    ]
+}

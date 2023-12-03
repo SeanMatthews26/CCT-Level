@@ -4,6 +4,8 @@ using UnityEngine;
 using Tobii.Gaming;
 using UnityEngine.UI;
 using System.IO;
+using System;
+using System.Runtime.Serialization;
 
 public class DataManager : MonoBehaviour
 {
@@ -30,13 +32,23 @@ public class DataManager : MonoBehaviour
 
     private int experienceLevel;
 
-    public class Test
+    public class Data
     {
-        public string name = "Sean";
-        public int num = 400;
+        public string currentTool;
+        public int experienceLevel;
+
+        public float totalPlayTime;
+        public float timeLookingAtTool;
+        public float percentTimeLookingAtTool;
+
+        public float[] timeToGetCollectables = new float[8];
+        public float[] timeWatchingToolPerCollectable = new float[8];
+
+        public float[] percentTimeLookingAtToolsPerCollectable = new float[8];
     }
 
-    public Test myTest = new Test();
+    public Data data = new Data();
+
 
     // Start is called before the first frame update
     void Start()
@@ -87,43 +99,45 @@ public class DataManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GazePoint gazePoint = TobiiAPI.GetGazePoint();
-        if (gazePoint.IsRecent())
-        {
-            if (RectTransformUtility.RectangleContainsScreenPoint(currentToolRT, gazePoint.Screen))
-            {
-                currentToolGameObject.GetComponent<RawImage>().color = Color.red;
-                timeLookingAtTool += Time.deltaTime;
-
-                if (manager.GetCollectablesCaught() < timeToGetCollectables.Length)
-                {
-                    TimeWatchingToolPerCollectable(manager.GetCollectablesCaught());
-                }
-            }
-            else
-            {
-                currentToolGameObject.GetComponent<RawImage>().color = Color.white;
-            }
-        }
-
         //Timer
         totalPlayTime += Time.deltaTime;
-        if(manager.GetCollectablesCaught() < timeToGetCollectables.Length)
+        if (manager.GetCollectablesCaught() < timeToGetCollectables.Length)
         {
             TimeToGetCollectables(manager.GetCollectablesCaught());
+        }
+
+        if(currentTool != Tool.NONE)
+        {
+            GazePoint gazePoint = TobiiAPI.GetGazePoint();
+            if (gazePoint.IsRecent())
+            {
+                if (RectTransformUtility.RectangleContainsScreenPoint(currentToolRT, gazePoint.Screen))
+                {
+                    //currentToolGameObject.GetComponent<RawImage>().color = Color.red;
+                    timeLookingAtTool += Time.deltaTime;
+
+                    if (manager.GetCollectablesCaught() < timeToGetCollectables.Length)
+                    {
+                        TimeWatchingToolPerCollectable(manager.GetCollectablesCaught());
+                    }
+                }
+                else
+                {
+                    currentToolGameObject.GetComponent<RawImage>().color = Color.white;
+                }
+            }
         }
     }
 
     private void OutputJson()
     {
-        string strOutput = JsonUtility.ToJson(myTest);
+        string strOutput = JsonUtility.ToJson(data, true);
 
-        File.WriteAllText(Application.dataPath + "/DataFiles/text.json", strOutput);
+        File.AppendAllText(Application.dataPath + "/DataFiles/PlayerData.json", strOutput);
     }
 
     private void OnApplicationQuit()
     {
-        OutputJson();
 
         float percentTimeLookingAtTool = (timeLookingAtTool / totalPlayTime) * 100;
         float[] percentTimeLookingAtToolsPerCollectable = new float[8];
@@ -133,7 +147,7 @@ public class DataManager : MonoBehaviour
             percentTimeLookingAtToolsPerCollectable[i] = (timeWatchingToolPerCollectable[i] / timeToGetCollectables[i]) * 100;
         }
 
-        Debug.Log("Total Play Time = " + totalPlayTime);
+        /*Debug.Log("Total Play Time = " + totalPlayTime);
         Debug.Log("Time Looking At the Tool is = " + timeLookingAtTool);
         Debug.Log("The percentage looking at tool is = " + percentTimeLookingAtTool + "%");
         Debug.Log("Time to Get collectable 1 was = " + timeToGetCollectables[0]);
@@ -145,13 +159,38 @@ public class DataManager : MonoBehaviour
         Debug.Log("Time to Get collectable 7 was = " + timeToGetCollectables[6]);
         Debug.Log("Time to Get collectable 8 was = " + timeToGetCollectables[7]);
 
-        Debug.Log("Experience Level = " + experienceLevel);
+        Debug.Log("Experience Level = " + experienceLevel);*/
 
         //Percentages per tool
         /*for (int i = 0; i < 8; i++)
         {
             Debug.Log("Percent time looking at tool while finding collectable " + (i + 1) + " was = " + percentTimeLookingAtToolsPerCollectable[i]);
         }*/
+
+        //Output Data
+        data.experienceLevel= experienceLevel;
+        data.currentTool = currentTool.ToString();
+
+        data.totalPlayTime= totalPlayTime;
+        data.timeLookingAtTool = timeLookingAtTool;
+        data.percentTimeLookingAtTool= percentTimeLookingAtTool;
+
+        for (int i = 0; i < 8; i++)
+        {
+            data.timeToGetCollectables[i] = timeToGetCollectables[i];
+        }
+
+        for (int i = 0; i < 8; i++)
+        {
+            data.timeWatchingToolPerCollectable[i] = timeWatchingToolPerCollectable[i];
+        }
+
+        for (int i = 0; i < 8; i++)
+        {
+            data.percentTimeLookingAtToolsPerCollectable[i] = percentTimeLookingAtToolsPerCollectable[i];
+        }
+
+        OutputJson();
     }
 
     private void TimeToGetCollectables(int collectableCaught)
