@@ -137,9 +137,8 @@ public class DataManager : MonoBehaviour
         File.AppendAllText(Application.dataPath + "/DataFiles/PlayerData.json", strOutput);
     }
 
-    private void OnApplicationQuit()
+    public void OutputData()
     {
-
         float percentTimeLookingAtTool = (timeLookingAtTool / totalPlayTime) * 100;
         float[] percentTimeLookingAtToolsPerCollectable = new float[8];
 
@@ -169,13 +168,13 @@ public class DataManager : MonoBehaviour
         }*/
 
         //Output Data
-        data.experienceLevel= experienceLevel;
+        data.experienceLevel = experienceLevel;
         data.currentTool = currentTool.ToString();
         data.collectablesCaught = manager.GetCollectablesCaught();
 
-        data.totalPlayTime= totalPlayTime;
+        data.totalPlayTime = totalPlayTime;
         data.timeLookingAtTool = timeLookingAtTool;
-        data.percentTimeLookingAtTool= percentTimeLookingAtTool;
+        data.percentTimeLookingAtTool = percentTimeLookingAtTool;
 
         for (int i = 0; i < 8; i++)
         {

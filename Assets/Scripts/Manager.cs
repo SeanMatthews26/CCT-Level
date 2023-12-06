@@ -7,10 +7,16 @@ using UnityEngine.InputSystem;
 
 public class Manager : MonoBehaviour
 {
+    [SerializeField] private GameObject dataManager;
+    private DataManager dataManagerScript;
+
     public bool playingGame = false;
 
     private int maxCollectables = 8;
     private int collectablesCaught = 0;
+
+    //StartMenu
+    [SerializeField] Canvas startCanvas;
 
     //Menu
     [SerializeField] GameObject firstButton;
@@ -28,12 +34,14 @@ public class Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EventSystem.current.SetSelectedGameObject(firstButton);
+        //EventSystem.current.SetSelectedGameObject(firstButton);
+
+        dataManagerScript = dataManager.GetComponent<DataManager>();
 
         playerInput = player.GetComponent<PlayerInput>();
         playerControllerScript = player.GetComponent<ThirdPersonController>();
 
-        Pause();
+        StartMenu();
     }
 
     // Update is called once per frame
@@ -54,11 +62,24 @@ public class Manager : MonoBehaviour
         }
     }
 
+    private void StartMenu()
+    {
+        playingGame = false;
+        Time.timeScale = 0f;
+        timerObject.SetActive(false);
+        playerControllerScript.enabled = false;
+        menuObject.SetActive(false);
+
+        startCanvas.enabled = true;
+    }
+
     public void FinishGame()
     {
         playingGame = false;
         Time.timeScale = 0f;
         playerControllerScript.enabled = false;
+
+        dataManagerScript.OutputData();
 
         finishObject.SetActive(true);
     }
@@ -68,12 +89,13 @@ public class Manager : MonoBehaviour
         return collectablesCaught;
     }
 
-    private void Pause()
+    public void QuestionMenu()
     {
         playingGame = false;
         Time.timeScale = 0f;
         playerControllerScript.enabled= false;
         timerObject.SetActive(false);
+        startCanvas.enabled = false;
 
         menuObject.SetActive(true);
     }

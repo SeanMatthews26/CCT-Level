@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class MenuManager : MonoBehaviour
 {
@@ -17,9 +18,13 @@ public class MenuManager : MonoBehaviour
     private Button selectedButton;
     [SerializeField] private Button confirmButton;
 
+    [SerializeField] GameObject firstButton;
+
     // Start is called before the first frame update
     void Start()
     {
+        EventSystem.current.SetSelectedGameObject(firstButton);
+
         manager = gameManager.GetComponent<Manager>();
         dataManagerScript = dataManager.GetComponent<DataManager>();
 
