@@ -36,6 +36,7 @@ public class DataManager : MonoBehaviour
     {
         public string currentTool;
         public int experienceLevel;
+        public int collectablesCaught;
 
         public float totalPlayTime;
         public float timeLookingAtTool;
@@ -170,6 +171,7 @@ public class DataManager : MonoBehaviour
         //Output Data
         data.experienceLevel= experienceLevel;
         data.currentTool = currentTool.ToString();
+        data.collectablesCaught = manager.GetCollectablesCaught();
 
         data.totalPlayTime= totalPlayTime;
         data.timeLookingAtTool = timeLookingAtTool;
