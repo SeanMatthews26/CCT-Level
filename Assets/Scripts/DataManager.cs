@@ -69,32 +69,7 @@ public class DataManager : MonoBehaviour
             timeWatchingToolPerCollectable[i] = 0;
         }
 
-        switch (currentTool)
-        {
-            case Tool.MINIMAP:
-                currentToolGameObject = minimap;
-                currentToolRT = minimap.GetComponent<RectTransform>();
-
-                minimap.SetActive(true);
-                compass.SetActive(false);
-                break;
-
-            case Tool.COMPASS: 
-                currentToolGameObject = compass;
-                currentToolRT = compass.GetComponent<RectTransform>();
-
-                minimap.SetActive(false);
-                compass.SetActive(true);
-                break;
-
-            case Tool.NONE:
-                currentToolGameObject= null;
-                currentToolRT = null;
-
-                minimap.SetActive(false);
-                compass.SetActive(false);
-                break;
-        }
+      
     }
 
     // Update is called once per frame
@@ -127,6 +102,36 @@ public class DataManager : MonoBehaviour
                     currentToolGameObject.GetComponent<RawImage>().color = Color.white;
                 }
             }
+        }
+    }
+
+    public void SetUpToolUI()
+    {
+        switch (currentTool)
+        {
+            case Tool.MINIMAP:
+                currentToolGameObject = minimap;
+                currentToolRT = minimap.GetComponent<RectTransform>();
+
+                minimap.SetActive(true);
+                compass.SetActive(false);
+                break;
+
+            case Tool.COMPASS:
+                currentToolGameObject = compass;
+                currentToolRT = compass.GetComponent<RectTransform>();
+
+                minimap.SetActive(false);
+                compass.SetActive(true);
+                break;
+
+            case Tool.NONE:
+                currentToolGameObject = null;
+                currentToolRT = null;
+
+                minimap.SetActive(false);
+                compass.SetActive(false);
+                break;
         }
     }
 

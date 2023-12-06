@@ -16,7 +16,7 @@ public class Manager : MonoBehaviour
     private int collectablesCaught = 0;
 
     //StartMenu
-    [SerializeField] Canvas startCanvas;
+    [SerializeField] GameObject startMenu;
 
     //Menu
     [SerializeField] GameObject firstButton;
@@ -68,9 +68,33 @@ public class Manager : MonoBehaviour
         Time.timeScale = 0f;
         timerObject.SetActive(false);
         playerControllerScript.enabled = false;
-        menuObject.SetActive(false);
 
-        startCanvas.enabled = true;
+        startMenu.SetActive(true);
+        menuObject.SetActive(false);
+        finishObject.SetActive(false);
+    }
+
+    public void QuestionMenu()
+    {
+        playingGame = false;
+        Time.timeScale = 0f;
+        playerControllerScript.enabled = false;
+        timerObject.SetActive(false);
+
+        startMenu.SetActive(false);
+        menuObject.SetActive(true);
+        finishObject.SetActive(false);
+    }
+
+    public void PlayGame()
+    {
+        playingGame = true;
+        Time.timeScale = 1f;
+        playerControllerScript.enabled = true;
+        timerObject.SetActive(true);
+        dataManagerScript.SetUpToolUI();
+
+        menuObject.SetActive(false);
     }
 
     public void FinishGame()
@@ -81,33 +105,14 @@ public class Manager : MonoBehaviour
 
         dataManagerScript.OutputData();
 
+        startMenu.SetActive(false);
+        menuObject.SetActive(false);
         finishObject.SetActive(true);
     }
 
     public int GetCollectablesCaught()
     {
         return collectablesCaught;
-    }
-
-    public void QuestionMenu()
-    {
-        playingGame = false;
-        Time.timeScale = 0f;
-        playerControllerScript.enabled= false;
-        timerObject.SetActive(false);
-        startCanvas.enabled = false;
-
-        menuObject.SetActive(true);
-    }
-    
-    public void PlayGame()
-    {
-        playingGame = true;
-        Time.timeScale = 1f;
-        playerControllerScript.enabled = true;
-        timerObject.SetActive(true);
-
-        menuObject.SetActive(false);
     }
 
     public bool GetPlayingGame()

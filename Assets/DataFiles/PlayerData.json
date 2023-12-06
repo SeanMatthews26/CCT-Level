@@ -1,19 +1,19 @@
 {
     "currentTool": "MINIMAP",
-    "experienceLevel": 1,
-    "collectablesCaught": 8,
-    "totalPlayTime": 45.733131408691409,
+    "experienceLevel": 2,
+    "collectablesCaught": 0,
+    "totalPlayTime": 5.0477213859558109,
     "timeLookingAtTool": 0.0,
     "percentTimeLookingAtTool": 0.0,
     "timeToGetCollectables": [
-        1.6475902795791627,
-        5.427091121673584,
-        6.657263278961182,
-        4.675243377685547,
-        4.76846170425415,
-        10.631668090820313,
-        6.640802383422852,
-        5.285045623779297
+        5.0477213859558109,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
     ],
     "timeWatchingToolPerCollectable": [
         0.0,
@@ -27,6 +27,23 @@
     ],
     "percentTimeLookingAtToolsPerCollectable": [
         0.0,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN
+    ]
+}{
+    "currentTool": "MINIMAP",
+    "experienceLevel": 4,
+    "collectablesCaught": 0,
+    "totalPlayTime": 5.017887592315674,
+    "timeLookingAtTool": 0.0,
+    "percentTimeLookingAtTool": 0.0,
+    "timeToGetCollectables": [
+        5.017887592315674,
         0.0,
         0.0,
         0.0,
@@ -34,5 +51,25 @@
         0.0,
         0.0,
         0.0
+    ],
+    "timeWatchingToolPerCollectable": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "percentTimeLookingAtToolsPerCollectable": [
+        0.0,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN
     ]
 }
