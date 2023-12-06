@@ -105,6 +105,44 @@ public class DataManager : MonoBehaviour
         }
     }
 
+    public void SetCurrentTool(int i)
+    {
+        switch(i)
+        {
+            case 1:
+                currentTool = Tool.MINIMAP;
+                break;
+
+            case 2:
+                currentTool = Tool.COMPASS;
+                break;
+
+            case 3:
+                currentTool = Tool.NONE;
+                break;
+        }
+    }
+
+    public int GetCurrentTool()
+    {
+        if(currentTool == Tool.MINIMAP)
+        {
+            return 1;
+        }
+        else if(currentTool == Tool.COMPASS)
+        {
+            return 2;
+        }
+        else if(currentTool == Tool.NONE)
+        {
+            return 3;
+        }
+        else
+        {
+            return 4;
+        }
+    }
+
     public void SetUpToolUI()
     {
         switch (currentTool)

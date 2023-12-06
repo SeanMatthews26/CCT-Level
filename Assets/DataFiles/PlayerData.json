@@ -72,4 +72,41 @@
         NaN,
         NaN
     ]
+}{
+    "currentTool": "COMPASS",
+    "experienceLevel": 1,
+    "collectablesCaught": 8,
+    "totalPlayTime": 49.31415939331055,
+    "timeLookingAtTool": 0.0,
+    "percentTimeLookingAtTool": 0.0,
+    "timeToGetCollectables": [
+        2.214582681655884,
+        7.65883731842041,
+        5.581662178039551,
+        5.813589572906494,
+        10.682886123657227,
+        4.468247890472412,
+        5.2327117919921879,
+        7.661557674407959
+    ],
+    "timeWatchingToolPerCollectable": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "percentTimeLookingAtToolsPerCollectable": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+    ]
 }
