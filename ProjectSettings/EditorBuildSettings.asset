@@ -4,6 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/StartScreen.unity
+    guid: d6210e300e5d6b8499aa002a2e8975fa
+  - enabled: 1
+    path: Assets/Scenes/MinimapCompass.unity
+    guid: 65617844314de4943adf54186d6f7197
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}

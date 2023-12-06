@@ -27,7 +27,6 @@ public class MenuManager : MonoBehaviour
         button[1].onClick.AddListener(TaskOnClick1);
         button[2].onClick.AddListener(TaskOnClick2);
         button[3].onClick.AddListener(TaskOnClick3);
-        button[4].onClick.AddListener(TaskOnClick4);
     }
 
     private void TaskOnClick0()
@@ -50,15 +49,11 @@ public class MenuManager : MonoBehaviour
         selectedButton = button[3];
     }
 
-    private void TaskOnClick4()
-    {
-        selectedButton = button[4];
-    }
 
     // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 4; i++)
         {
             if (button[i] == selectedButton)
             {
@@ -89,11 +84,6 @@ public class MenuManager : MonoBehaviour
     public void Button4()
     {
         experienceLevel= 4;
-    }
-
-    public void Button5()
-    {
-        experienceLevel= 5;
     }
 
     public void ConfirmButton()
