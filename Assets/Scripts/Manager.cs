@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 public class Manager : MonoBehaviour
 {
-    private bool playingGame = false;
+    public bool playingGame = false;
 
     private int maxCollectables = 8;
     private int collectablesCaught = 0;
@@ -15,6 +15,7 @@ public class Manager : MonoBehaviour
     //Menu
     [SerializeField] GameObject firstButton;
     [SerializeField] GameObject menuObject;
+    [SerializeField] GameObject timerObject;
 
     //Finish
     [SerializeField] GameObject finishObject;
@@ -53,7 +54,7 @@ public class Manager : MonoBehaviour
         }
     }
 
-    private void FinishGame()
+    public void FinishGame()
     {
         playingGame = false;
         Time.timeScale = 0f;
@@ -72,6 +73,7 @@ public class Manager : MonoBehaviour
         playingGame = false;
         Time.timeScale = 0f;
         playerControllerScript.enabled= false;
+        timerObject.SetActive(false);
 
         menuObject.SetActive(true);
     }
@@ -81,6 +83,7 @@ public class Manager : MonoBehaviour
         playingGame = true;
         Time.timeScale = 1f;
         playerControllerScript.enabled = true;
+        timerObject.SetActive(true);
 
         menuObject.SetActive(false);
     }
