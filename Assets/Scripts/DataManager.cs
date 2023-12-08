@@ -124,7 +124,7 @@ public class DataManager : MonoBehaviour
                 }
                 else
                 {
-                    currentToolGameObject.GetComponent<RawImage>().color = Color.white;
+                    //currentToolGameObject.GetComponent<RawImage>().color = Color.white;
                 }
             }
         }
