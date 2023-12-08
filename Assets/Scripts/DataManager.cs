@@ -97,10 +97,7 @@ public class DataManager : MonoBehaviour
                         TimeWatchingToolPerCollectable(manager.GetCollectablesCaught());
                     }
                 }
-                else
-                {
-                    currentToolGameObject.GetComponent<RawImage>().color = Color.white;
-                }
+                
             }
         }
     }
@@ -177,7 +174,7 @@ public class DataManager : MonoBehaviour
     {
         string strOutput = JsonUtility.ToJson(data, true);
 
-        File.AppendAllText(Application.dataPath + "/DataFiles/PlayerData.json", strOutput);
+        File.AppendAllText(Application.dataPath + "/DataFiles/PlayerData.json", strOutput + ", ");
     }
 
     public void OutputData()

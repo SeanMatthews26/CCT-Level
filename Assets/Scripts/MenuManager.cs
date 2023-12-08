@@ -93,7 +93,10 @@ public class MenuManager : MonoBehaviour
 
     public void ConfirmButton()
     {
-        dataManagerScript.SetExperienceLevel(experienceLevel);
-        manager.PlayGame();
+        if(experienceLevel != 0)
+        {
+            dataManagerScript.SetExperienceLevel(experienceLevel);
+            manager.PlayGame();
+        }
     }
 }
