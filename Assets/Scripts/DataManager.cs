@@ -42,10 +42,35 @@ public class DataManager : MonoBehaviour
         public float timeLookingAtTool;
         public float percentTimeLookingAtTool;
 
-        public float[] timeToGetCollectables = new float[8];
-        public float[] timeWatchingToolPerCollectable = new float[8];
+        //public float[] timeToGetCollectables = new float[8];
+        public float timeToGetCollectable1;
+        public float timeToGetCollectable2;
+        public float timeToGetCollectable3;
+        public float timeToGetCollectable4;
+        public float timeToGetCollectable5;
+        public float timeToGetCollectable6;
+        public float timeToGetCollectable7;
+        public float timeToGetCollectable8;
 
-        public float[] percentTimeLookingAtToolsPerCollectable = new float[8];
+        //public float[] timeWatchingToolPerCollectable = new float[8];
+        public float timeWatchingToolPerCollectable1;
+        public float timeWatchingToolPerCollectable2;
+        public float timeWatchingToolPerCollectable3;
+        public float timeWatchingToolPerCollectable4;
+        public float timeWatchingToolPerCollectable5;
+        public float timeWatchingToolPerCollectable6;
+        public float timeWatchingToolPerCollectable7;
+        public float timeWatchingToolPerCollectable8;
+
+        //public float[] percentTimeLookingAtToolsPerCollectable = new float[8];
+        public float percentTimeLookingAtToolsPerCollectable1;
+        public float percentTimeLookingAtToolsPerCollectable2;
+        public float percentTimeLookingAtToolsPerCollectable3;
+        public float percentTimeLookingAtToolsPerCollectable4;
+        public float percentTimeLookingAtToolsPerCollectable5;
+        public float percentTimeLookingAtToolsPerCollectable6;
+        public float percentTimeLookingAtToolsPerCollectable7;
+        public float percentTimeLookingAtToolsPerCollectable8;
     }
 
     public Data data = new Data();
@@ -216,20 +241,49 @@ public class DataManager : MonoBehaviour
         data.timeLookingAtTool = timeLookingAtTool;
         data.percentTimeLookingAtTool = percentTimeLookingAtTool;
 
-        for (int i = 0; i < 8; i++)
+        /*for (int i = 0; i < 8; i++)
         {
             data.timeToGetCollectables[i] = timeToGetCollectables[i];
-        }
+        }*/
 
-        for (int i = 0; i < 8; i++)
+        data.timeToGetCollectable1 = timeToGetCollectables[0];
+        data.timeToGetCollectable2 = timeToGetCollectables[1];
+        data.timeToGetCollectable3 = timeToGetCollectables[2];
+        data.timeToGetCollectable4 = timeToGetCollectables[3];
+        data.timeToGetCollectable5 = timeToGetCollectables[4];
+        data.timeToGetCollectable6 = timeToGetCollectables[5];
+        data.timeToGetCollectable7 = timeToGetCollectables[6];
+        data.timeToGetCollectable8 = timeToGetCollectables[7];
+
+        /*for (int i = 0; i < 8; i++)
         {
             data.timeWatchingToolPerCollectable[i] = timeWatchingToolPerCollectable[i];
-        }
+        }*/
 
-        for (int i = 0; i < 8; i++)
+        data.timeWatchingToolPerCollectable1 = timeWatchingToolPerCollectable[0];
+        data.timeWatchingToolPerCollectable2 = timeWatchingToolPerCollectable[1];
+        data.timeWatchingToolPerCollectable3 = timeWatchingToolPerCollectable[2];
+        data.timeWatchingToolPerCollectable4 = timeWatchingToolPerCollectable[3];
+        data.timeWatchingToolPerCollectable5 = timeWatchingToolPerCollectable[4];
+        data.timeWatchingToolPerCollectable6 = timeWatchingToolPerCollectable[5];
+        data.timeWatchingToolPerCollectable7 = timeWatchingToolPerCollectable[6];
+        data.timeWatchingToolPerCollectable8 = timeWatchingToolPerCollectable[7];
+
+
+        /*for (int i = 0; i < 8; i++)
         {
             data.percentTimeLookingAtToolsPerCollectable[i] = percentTimeLookingAtToolsPerCollectable[i];
-        }
+        }*/
+
+        data.percentTimeLookingAtToolsPerCollectable1 = percentTimeLookingAtToolsPerCollectable[0];
+        data.percentTimeLookingAtToolsPerCollectable2 = percentTimeLookingAtToolsPerCollectable[1];
+        data.percentTimeLookingAtToolsPerCollectable3 = percentTimeLookingAtToolsPerCollectable[2];
+        data.percentTimeLookingAtToolsPerCollectable4 = percentTimeLookingAtToolsPerCollectable[3];
+        data.percentTimeLookingAtToolsPerCollectable5 = percentTimeLookingAtToolsPerCollectable[4];
+        data.percentTimeLookingAtToolsPerCollectable6 = percentTimeLookingAtToolsPerCollectable[5];
+        data.percentTimeLookingAtToolsPerCollectable7 = percentTimeLookingAtToolsPerCollectable[6];
+        data.percentTimeLookingAtToolsPerCollectable8 = percentTimeLookingAtToolsPerCollectable[7];
+
 
         OutputJson();
     }
