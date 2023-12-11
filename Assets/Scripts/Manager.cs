@@ -103,11 +103,11 @@ public class Manager : MonoBehaviour
         Time.timeScale = 0f;
         playerControllerScript.enabled = false;
 
-        dataManagerScript.OutputData();
-
         startMenu.SetActive(false);
         menuObject.SetActive(false);
         finishObject.SetActive(true);
+
+        dataManagerScript.OutputData();
     }
 
     public int GetCollectablesCaught()
