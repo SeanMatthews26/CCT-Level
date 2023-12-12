@@ -9406,7 +9406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1043251015}
   timerText: {fileID: 576617403}
-  timeLimit: 5
+  timeLimit: 180
 --- !u!114 &1738211622
 MonoBehaviour:
   m_ObjectHideFlags: 0
